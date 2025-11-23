@@ -1,0 +1,328 @@
+.movie-card {
+	background: #fff;
+	border-radius: 8px;
+	padding: 0.75rem;
+	box-shadow: 0 1px 6px rgba(2,6,23,0.06);
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	transition: box-shadow 0.18s;
+}
+.movie-card:hover {
+	box-shadow: 0 4px 16px rgba(109, 5, 100, 0.13);
+}
+
+.movie-card img.poster {
+	width: 100%;
+	aspect-ratio: 2/3;
+	object-fit: cover;
+	border-radius: 6px;
+	margin-bottom: 0.5rem;
+}
+
+.movie-card h3 {
+	margin: 0 0 0.25rem;
+	font-size: 1rem;
+}
+
+.featured-banner {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	background-size: cover;
+	background-position: center;
+	border-radius: 18px;
+	box-shadow: 0 2px 16px rgba(2,6,23,0.10);
+	margin: 2.5rem auto;
+	max-width: 1100px;
+	min-height: 400px;
+	text-decoration: none;
+	color: #fff;
+	overflow: hidden;
+}
+.featured-banner:hover { box-shadow: 0 4px 32px rgba(109, 5, 100, 0.452); }
+
+.featured-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.05) 0%, rgba(0, 0, 0, 0.562) 40%, rgba(0, 0, 0, 0.842) 75%);
+  z-index: 1;
+}
+
+.featured-banner__content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  padding: 2.2rem 3rem 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+}
+.featured-banner__content h2 {
+  font-size: 2.5rem;
+  margin: 0 0 0.7rem 0;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+.featured-banner__content h3 {
+  font-size: 1.7rem;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+.featured-banner__content p {
+  color: #f3e9f7;
+  font-size: 1.18rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.13);
+}
+@media (max-width: 700px) {
+  .featured-banner {
+    min-height: 220px;
+    max-width: 98vw;
+  }
+  .featured-banner__img { display:none; }
+  .featured-banner__content {
+    padding: 1.2rem 1rem 1.5rem 1rem;
+    text-align: center;
+  }
+  .featured-banner__content h2 { font-size: 1.5rem; }
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	line-height: 1.5;
+	background: #f5f7fb;
+	color: #111827;
+}
+
+.navbar {
+	background: linear-gradient(90deg, #e43756 0%, #e437c7 100%);
+	color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 50;
+	box-shadow: 0 2px 10px rgba(15, 23, 42, 0.12);
+}
+
+.navbar__container {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0.25rem 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+#navbar__logo {
+	color: #fff;
+	text-decoration: none;
+	font-weight: 800;
+	font-size: 1.35rem;
+	letter-spacing: 0.4px;
+	display: inline-flex;
+	align-items: center;
+}
+
+.navbar__logo-img {
+	display: block;
+	max-height: 80px;
+	width: auto;
+}
+
+.navbar__toggle {
+    display: none;
+    cursor: pointer;
+    width: 34px;
+    height: 26px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.navbar__toggle .bar {
+	display: block;
+	height: 3px;
+	width: 100%;
+	background: rgba(255,255,255,0.95);
+	border-radius: 3px;
+	transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.navbar__menu {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar__links {
+	display: inline-block;
+	color: #fff;
+	text-decoration: none;
+	padding: 0.55rem 0.95rem;
+	border-radius: 6px;
+	font-weight: 600;
+	font-size: 1.5rem;
+	transition: background-color 0.15s ease, transform 0.12s ease;
+}
+
+.navbar__links:hover,
+.navbar__links:focus {
+	background: rgba(255,255,255,0.12);
+	outline: none;
+	transform: translateY(-1px);
+}
+
+.navbar__btn .button {
+	background: #fff;
+	color: #e43756;
+	padding: 0.5rem 1rem;
+	border-radius: 999px;
+	text-decoration: none;
+	font-weight: 800;
+	font-size: 1.4rem;
+	display: inline-block;
+}
+
+.navbar__btn .button:hover {
+	opacity: 0.95;
+	transform: translateY(-1px);
+}
+
+.hero .button {
+	background: #a50698;
+	color: #fff;
+	padding: 0.5rem 1rem;
+	border-radius: 999px;
+	text-decoration: none;
+	font-size: 1.5em;
+	display: inline-block;
+}
+
+@media (max-width: 768px) {
+	.navbar__toggle { display: flex; gap: 6px; }
+
+	.navbar__menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: linear-gradient(180deg, #a50698 0%, #7306a5 100%);
+		flex-direction: column;
+		align-items: stretch;
+		padding: 0.75rem 1rem;
+		display: none;
+		gap: 0.5rem;
+	}
+
+	.navbar__menu.active {
+		display: flex;
+	}
+
+	.navbar__links {
+		padding: 0.75rem 1rem;
+		width: 100%;
+	}
+
+	.navbar__btn { width: 100%; }
+
+	.navbar__btn .button {
+		width: 100%;
+		text-align: center;
+		display: block;
+	}
+}
+
+.navbar__links:focus-visible,
+.navbar__btn .button:focus-visible {
+	outline: 3px solid rgba(255,255,255,0.18);
+	outline-offset: 2px;
+}
+
+.site-content { padding-top: 80px; }
+
+.navbar__toggle.is-active .bar:nth-child(1) {
+	transform: translateY(8px) rotate(45deg);
+}
+.navbar__toggle.is-active .bar:nth-child(2) {
+	opacity: 0;
+}
+.navbar__toggle.is-active .bar:nth-child(3) {
+	transform: translateY(-8px) rotate(-45deg);
+}
+
+.side-banner {
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	width: auto;
+	object-fit: cover;
+	opacity: 0.98;
+	pointer-events: none;
+	filter: drop-shadow(0 6px 18px rgba(2,6,23,0.12));
+	z-index: 5;
+	display: none;
+}
+
+@media (min-width: 1200px) {
+	.side-banner { display: block; }
+	.side-banner.left {
+		left: 0;
+		right: auto;
+		width: calc((100vw - 1100px) / 2);
+		object-position: left center;
+	}
+	.side-banner.right {
+		right: 0;
+		left: auto;
+		width: calc((100vw - 1100px) / 2);
+		object-position: right center;
+	}
+}
+
+@media (max-width: 1199px) {
+	.side-banner { display: none; }
+}
+
+.rating-icon {
+	display: block;
+	width: 44px;
+	height: auto;
+	margin-top: 0.6rem;
+	opacity: 0.98;
+}
+
+.featured-banner .rating-icon {
+	position: absolute;
+	right: 2rem;
+	bottom: -3.5rem;
+	width: 72px;
+	opacity: 1;
+	z-index: 3;
+}
+
+@media (max-width: 700px) {
+	.featured-banner .rating-icon {
+		right: 1rem;
+		bottom: 0.75rem;
+		width: 52px;
+	}
+}
+
