@@ -25,7 +25,7 @@
                 <div style="display:flex; align-items:center; gap:1rem;">
                     <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="/" class="navbar__links">Movies</a>
+                    <a href="/" class="navbar__links navbar__highlighted">Movies</a>
                 </li>
                 <li class="navbar__item">
                     <a href="/" class="navbar__links">TV Shows</a>
@@ -47,7 +47,61 @@
             </div>
         </nav>
 
+        <main class="site-content">
+            <img src="background2.png" alt="" aria-hidden="true" class="side-banner left">
+            <img src="background2.png" alt="" aria-hidden="true" class="side-banner right">
 
+            <!-- TITLE -->
+            <header class="hero" style="padding: 2.5rem 1rem; text-align:center;">
+                <h1 style="font-size:3rem; margin-bottom:0.8rem;">Best Orchard of Picks (2025)</h1>
+                <!-- DROPDOWNS FOR MOVIE FILTERING -->
+                 <div>
+                    <select id="movieFilter" name="movieFilterSelection" class="movies__filterdropdown">
+                        <option value="MOST POPULAR" selected>MOST POPULAR</option>
+                        <option value="NEWEST">NEWEST</option>
+                        <option value="TOP BOX OFFICE">TOP BOX OFFICE</option>
+                    </select>
+                    <select id="movieFilter" name="movieFilterSelection" class="movies__filterdropdown">
+                        <option value="MOST POPULAR" selected>MOST POPULAR</option>
+                        <option value="NEWEST">NEWEST</option>
+                        <option value="TOP BOX OFFICE">TOP BOX OFFICE</option>
+                    </select>
+                    <select id="movieFilter" name="movieFilterSelection" class="movies__filterdropdown">
+                        <option value="MOST POPULAR" selected>MOST POPULAR</option>
+                        <option value="NEWEST">NEWEST</option>
+                        <option value="TOP BOX OFFICE">TOP BOX OFFICE</option>
+                    </select>
+                    <select id="movieFilter" name="movieFilterSelection" class="movies__filterdropdown">
+                        <option value="MOST POPULAR" selected>MOST POPULAR</option>
+                        <option value="NEWEST">NEWEST</option>
+                        <option value="TOP BOX OFFICE">TOP BOX OFFICE</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- FOOTER -->
+            <footer style="padding:2rem 1rem; text-align:center; color: gray;">
+                <small>&copy; 2025 Ripened Raspberries by Brentam Blockbusters</small>
+            </footer>
+        </main>
+
+        <script>
+            // Mobile menu toggle: toggles .active on the menu and .is-active on the hamburger for animation
+            (function(){
+                var btn = document.getElementById('mobile-menu');
+                var menu = document.querySelector('.navbar__menu');
+                if(!btn || !menu) return;
+                btn.setAttribute('aria-controls', 'navbar-menu');
+                btn.setAttribute('aria-expanded', 'false');
+                menu.setAttribute('id', 'navbar-menu');
+
+                btn.addEventListener('click', function(){
+                    var isActive = menu.classList.toggle('active');
+                    btn.classList.toggle('is-active', isActive);
+                    btn.setAttribute('aria-expanded', String(isActive));
+                });
+            })();
+        </script>
 
     </body>
 
