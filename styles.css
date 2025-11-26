@@ -231,6 +231,8 @@ body {
 .movies__filterdropdown {
 	margin-left: 3px;
 	margin-right: 3px;
+	border-radius: 20px;
+	padding: 7px 15px;
 }
 
 @media (max-width: 768px) {

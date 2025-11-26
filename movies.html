@@ -53,29 +53,42 @@
 
             <!-- TITLE -->
             <header class="hero" style="padding: 2.5rem 1rem; text-align:center;">
-                <h1 style="font-size:3rem; margin-bottom:0.8rem;">Best Orchard of Picks (2025)</h1>
+                <h1 style="font-size:3rem; margin-bottom:0.8rem;" id="output">Sweetest Orchard (2025)</h1>
+                <input type="text" id="myInput">
+                <button onclick="sendData()">Get Processed Data</button>
                 <!-- DROPDOWNS FOR MOVIE FILTERING -->
                  <div>
-                    <select id="movieFilter" name="movieFilterSelection" class="movies__filterdropdown">
+                    <!-- Sort by popularity -->
+                    <select id="popFilter" name="popFilterSelection" class="movies__filterdropdown">
                         <option value="MOST POPULAR" selected>MOST POPULAR</option>
                         <option value="NEWEST">NEWEST</option>
                         <option value="TOP BOX OFFICE">TOP BOX OFFICE</option>
+                        <option value="A-Z">A-Z</option>
                     </select>
-                    <select id="movieFilter" name="movieFilterSelection" class="movies__filterdropdown">
-                        <option value="MOST POPULAR" selected>MOST POPULAR</option>
-                        <option value="NEWEST">NEWEST</option>
-                        <option value="TOP BOX OFFICE">TOP BOX OFFICE</option>
+                    <!-- Genre -->
+                    <select id="genreFilter" name="genreFilterSelection" class="movies__filterdropdown">
+                        <option value="ACTION" selected>ACTION</option>
+                        <option value="ADVENTURE">ADVENTURE</option>
+                        <option value="ANIMATION">ANIMATION</option>
+                        <option value="ANIME">ANIME</option>
+                        <option value="BIOGRAPHY">BIOGRAPHY</option>
                     </select>
-                    <select id="movieFilter" name="movieFilterSelection" class="movies__filterdropdown">
-                        <option value="MOST POPULAR" selected>MOST POPULAR</option>
-                        <option value="NEWEST">NEWEST</option>
-                        <option value="TOP BOX OFFICE">TOP BOX OFFICE</option>
+                    <!-- Rating -->
+                    <select id="ratingFilter" name="ratingFilterSelection" class="movies__filterdropdown">
+                        <option value="G" selected>G</option>
+                        <option value="PG">PG</option>
+                        <option value="PG-13">PG-13</option>
                     </select>
-                    <select id="movieFilter" name="movieFilterSelection" class="movies__filterdropdown">
-                        <option value="MOST POPULAR" selected>MOST POPULAR</option>
-                        <option value="NEWEST">NEWEST</option>
-                        <option value="TOP BOX OFFICE">TOP BOX OFFICE</option>
+                    <!-- Raspometer -->
+                    <select id="meterFilter" name="meterFilterSelection" class="movies__filterdropdown">
+                        <option value="MEDLEY" selected>MEDLEY</option>
+                        <option value="YOGHURT">YOGHURT</option>
+                        <option value="RASPBERRY">RASPBERRY</option>
+                        <option value="ROTTENBERRY">ROTTEN BERRY</option>
+                        <option value="ROTTENTOMATO">ROTTEN TOMATO</option>
                     </select>
+                    <!-- Verified berry medley -->
+                    <div id="medleySelect" name="medleySelectButton" class="movies__filterdropdown"></div>
                 </div>
             </header>
 
@@ -102,6 +115,8 @@
                 });
             })();
         </script>
+
+        <script src="script.js"></script>
 
     </body>
 
