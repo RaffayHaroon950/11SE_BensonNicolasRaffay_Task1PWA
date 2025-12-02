@@ -5,16 +5,118 @@
 <html>
 
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Page Title</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Ripened Raspberries</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
+        
+        <!-- Nav bar -->
+        <nav class="navbar">
+            <div class="navbar__container">
+                <a href="/" id="navbar__logo">
+                    <img src="RipenedRaspberriesLogoWhite.png" alt="Ripened Raspberries" class="navbar__logo-img">
+                </a>
 
-        <nav>
-            
+                <div style="display:flex; align-items:center; gap:1rem;">
+                    <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links navbar__highlighted">Movies</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links">TV Shows</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links">RipeBerry News</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="/" class="button">Sign In</a>
+                </li>
+            </ul>
+
+                    <div class="navbar__toggle" id="mobile-menu" aria-hidden="true">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </div>
         </nav>
+
+        <main class="site-content">
+            <img src="background2.png" alt="" aria-hidden="true" class="side-banner left">
+            <img src="background2.png" alt="" aria-hidden="true" class="side-banner right">
+
+            <!-- TITLE -->
+            <header class="hero" style="padding: 2.5rem 1rem; text-align:center;">
+                <h1 style="font-size:3rem; margin-bottom:0.8rem;" id="output">Sweetest Orchard (2025)</h1>
+                <input type="text" id="myInput">
+                <button onclick="sendData()">Get Processed Data</button>
+                <!-- DROPDOWNS FOR MOVIE FILTERING -->
+                 <div>
+                    <!-- Sort by popularity -->
+                    <select id="popFilter" name="popFilterSelection" class="movies__filterdropdown">
+                        <option value="MOST POPULAR" selected>MOST POPULAR</option>
+                        <option value="NEWEST">NEWEST</option>
+                        <option value="TOP BOX OFFICE">TOP BOX OFFICE</option>
+                        <option value="A-Z">A-Z</option>
+                    </select>
+                    <!-- Genre -->
+                    <select id="genreFilter" name="genreFilterSelection" class="movies__filterdropdown">
+                        <option value="ACTION" selected>ACTION</option>
+                        <option value="ADVENTURE">ADVENTURE</option>
+                        <option value="ANIMATION">ANIMATION</option>
+                        <option value="ANIME">ANIME</option>
+                        <option value="BIOGRAPHY">BIOGRAPHY</option>
+                    </select>
+                    <!-- Rating -->
+                    <select id="ratingFilter" name="ratingFilterSelection" class="movies__filterdropdown">
+                        <option value="G" selected>G</option>
+                        <option value="PG">PG</option>
+                        <option value="PG-13">PG-13</option>
+                    </select>
+                    <!-- Raspometer -->
+                    <select id="meterFilter" name="meterFilterSelection" class="movies__filterdropdown">
+                        <option value="MEDLEY" selected>MEDLEY</option>
+                        <option value="YOGHURT">YOGHURT</option>
+                        <option value="RASPBERRY">RASPBERRY</option>
+                        <option value="ROTTENBERRY">ROTTEN BERRY</option>
+                        <option value="ROTTENTOMATO">ROTTEN TOMATO</option>
+                    </select>
+                    <!-- Verified berry medley -->
+                    <div id="medleySelect" name="medleySelectButton" class="movies__filterdropdown"></div>
+                </div>
+            </header>
+
+            <!-- FOOTER -->
+            <footer style="padding:2rem 1rem; text-align:center; color: gray;">
+                <small>&copy; 2025 Ripened Raspberries by Brentam Blockbusters</small>
+            </footer>
+        </main>
+
+        <script>
+            // Mobile menu toggle: toggles .active on the menu and .is-active on the hamburger for animation
+            (function(){
+                var btn = document.getElementById('mobile-menu');
+                var menu = document.querySelector('.navbar__menu');
+                if(!btn || !menu) return;
+                btn.setAttribute('aria-controls', 'navbar-menu');
+                btn.setAttribute('aria-expanded', 'false');
+                menu.setAttribute('id', 'navbar-menu');
+
+                btn.addEventListener('click', function(){
+                    var isActive = menu.classList.toggle('active');
+                    btn.classList.toggle('is-active', isActive);
+                    btn.setAttribute('aria-expanded', String(isActive));
+                });
+            })();
+        </script>
+
+        <script src="script.js"></script>
 
     </body>
 

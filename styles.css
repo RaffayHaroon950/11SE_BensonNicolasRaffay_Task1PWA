@@ -216,6 +216,25 @@ body {
 	display: inline-block;
 }
 
+.navbar__highlighted {
+	background: #fff;
+	color: #e43756;
+}
+
+.navbar__highlighted:hover {
+	background: #fff;
+	color: #e43756;
+	transform: none;
+}
+
+/* Movie Filter Dropdown */
+.movies__filterdropdown {
+	margin-left: 3px;
+	margin-right: 3px;
+	border-radius: 20px;
+	padding: 7px 15px;
+}
+
 @media (max-width: 768px) {
 	.navbar__toggle { display: flex; gap: 6px; }
 
