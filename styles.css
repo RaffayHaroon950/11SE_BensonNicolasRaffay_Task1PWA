@@ -344,3 +344,140 @@ body {
 		width: 52px;
 	}
 }
+
+
+/*Login Page and Contact Page styles*/
+
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+.login-page {
+    font-family: Arial, sans-serif;
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.centre-column {
+    background: rgba(255, 255, 255, 0.95);
+    width: 375px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 40px 30px 60px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.centre-column input,
+.centre-column button:not(.back-btn) {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.centre-column .input-group {
+    width: 100%;
+}
+.back-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 10px 10px;
+    background: #ddd;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+	font-size: 16px;
+	width: auto;
+    display: inline-block;  
+}
+
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 25px;
+	font-size: 24px
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: #c400a8;
+    color: white;
+}
+
+.btn-secondary {
+    background: none;
+    color: #c400a8;
+}
+
+.contact-grid {
+    max-width: 900px;
+    margin: 2rem auto 4rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1.1fr 1.3fr;
+    align-items: flex-start;
+}
+
+.contact-info h2 {
+    margin-bottom: 0.8rem;
+}
+
+.contact-info p {
+    margin: 0.3rem 0;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.contact-form .button {
+    margin-top: 0.5rem;
+    width: 100%;
+}
