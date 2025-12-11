@@ -88,6 +88,23 @@
                     <!-- Verified berry medley -->
                     <div id="medleySelect" name="medleySelectButton" class="movies__filterdropdown"></div>
                 </div>
+                <!-- TESTING SQL SELECTION VIA DROPDOWN -->
+                 <h1>Testing SQL Selection via Dropdown</h1>
+                <form method="POST" action="/">
+
+                    <select name="idDropdown" class="movies__filterdropdown">
+                        {% for item in items %}
+                            <option value="{{ item.id }}">{{ item.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Display Text">
+                </form>
+
+                {% if selected_item_text %}
+                    <h2>Selected Item Year:</h2>
+                    <p>{{ selected_item_text }}</p>
+                {% endif %}
+
             </header>
 
             <section style="padding:3rem; max-width:1100px; margin:0 auto;">
@@ -139,7 +156,7 @@
             })();
         </script>
 
-        <script src="script.js"></script>
+        <script src="app.js"></script>
 
     </body>
 
