@@ -420,7 +420,7 @@ input[type="password"] {
     border-radius: 6px;
 }
 
-.button {
+.contact.button, .login.button {
     width: 100%;
     padding: 12px;
     margin-top: 10px;
