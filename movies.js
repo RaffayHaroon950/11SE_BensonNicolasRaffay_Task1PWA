@@ -130,7 +130,7 @@ function updatePageTitle(order) {
     let title;
     if (order === "MOST POPULAR") {
         if (parts.length > 0) {
-            title = `Best ${parts.join(" ")} ${baseLabel}}`;
+            title = `Best ${parts.join(" ")} ${baseLabel}`;
         } else {
             title = `Best ${baseLabel}`;
         }
