@@ -135,7 +135,7 @@ function renderCards() {
     if (currentResults.length === 0) {
         const msg = document.createElement('div');
         msg.className = "no-movies";
-        msg.style = "text-align: center; width: 300px;";
+        msg.style = "text-align: center; width: 300px; grid-column: 1 / -1; justify-self: center;";
         msg.innerHTML = `
             <img src="no-movies.png" width="200">
             <h2>Not in season just yet!</h2>
