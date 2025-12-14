@@ -43,9 +43,11 @@ function runQuery(order = "MOST POPULAR") {
     const genre = `${temp.charAt(0).toUpperCase()}${temp.toLowerCase().slice(1)}`;
     const age = document.getElementById('ageFilter').value;
     const rating = document.getElementById('ratingFilter').value;
+    const search = document.getElementById('searchInput').value.trim();
+    const type = document.getElementById('typeFilter').value;
 
     let query = `
-        SELECT Movies.rowid, Movies.Name, Movies.Rating, Movies.AgeRating
+        SELECT Movies.rowid, Movies.Name, Movies.Rating, Movies.AgeRating, Movies.Medium
         FROM Movies
         WHERE 1=1
     `;
@@ -68,6 +70,14 @@ function runQuery(order = "MOST POPULAR") {
             )
         `;
         params.push(genre)
+    }
+    if (search !== "") {
+        query += " AND Movies.Name LIKE ?";
+        params.push(`%${search}%`);
+    }
+    if (type !== "") {
+        query += "AND Movies.Medium = ?";
+        params.push(type);
     }
 
     if (order === "MOST POPULAR") {
@@ -102,26 +112,33 @@ function updatePageTitle(order) {
     const rating = document.getElementById('ratingFilter').value;
     let temp = document.getElementById('genreFilter').value;
     const genre = `${temp.charAt(0).toUpperCase()}${temp.toLowerCase().slice(1)}`;
+    const type = document.getElementById('typeFilter').value;
 
-    let title = "Movies";
+    let baseLabel;
+    if(type === "movie") {
+        baseLabel = "Movies";
+    } else if (type === "show") {
+        baseLabel = "Shows";
+    } else {
+        baseLabel = "Picks";
+    }
 
+    let parts = [];
+    if (age) parts.push(`${age} Rated`);
+    if (genre) parts.push(genre);
+    
+    let title;
     if (order === "MOST POPULAR") {
-        if (age || rating || genre) {
-            let parts = [];
-            if (age) parts.push(`${age} Rated`);
-            if (genre) parts.push(genre);
-            title = `Best ${parts.join(" ")} Movies`;
+        if (parts.length > 0) {
+            title = `Best ${parts.join(" ")} ${baseLabel}}`;
         } else {
-            title = "Best Movies";
+            title = `Best ${baseLabel}`;
         }
     } else {
-        if (age || rating || genre) {
-            let parts = [];
-            if (age) parts.push(`${age} Rated`);
-            if (genre) parts.push(genre);
-            title = `${parts.join(" ")} Movies`;
+        if (parts.length > 0) {
+            title = `${parts.join(" ")} ${baseLabel}`;
         } else {
-            title = "Movies";
+            title = baseLabel;
         }
     }
 
@@ -152,6 +169,7 @@ function renderCards() {
         card.innerHTML = `
             <img src="posters/${row.rowid}.png" alt="${row.Name} poster" class="poster">
             <h3>${row.Name}</h3>
+            <p>${row.Medium.charAt(0).toUpperCase()}${row.Medium.toLowerCase().slice(1)}</p>
             <img src="stars_${row.Rating}.png" alt="" class="rating-icon" aria-hidden="true">
         `;
         container.appendChild(card)
@@ -177,13 +195,15 @@ function resetFilters() {
     document.getElementById('ratingFilter').value = "";
     document.getElementById('genreFilter').value = "";
     document.getElementById('popFilter').value = "MOST POPULAR";
+    document.getElementById('searchInput').value = "";
+    document.getElementById('typeFilter').value = "";
     
     runQuery()
 }
 
 // Hook elements up to event listeners
 
-['ageFilter', 'ratingFilter', 'genreFilter'].forEach(id => {
+['ageFilter', 'ratingFilter', 'genreFilter', 'typeFilter'].forEach(id => {
     document.getElementById(id).addEventListener('change', () => {
         runQuery(getCurrentSort())
     });
@@ -193,6 +213,14 @@ document.getElementById('popFilter').addEventListener('change', (e) => {
     runQuery(e.target.value);
 });
 
-document.getElementById('selectReset').addEventListener('click', resetFilters)
+document.getElementById('selectReset').addEventListener('click', resetFilters);
+
+document.getElementById('searchInput').addEventListener('input', () => {
+    runQuery(getCurrentSort());
+});
+
+document.getElementById('searchBtn').addEventListener('click', () => {
+    runQuery(getCurrentSort());
+})
 
 loadDatabase();

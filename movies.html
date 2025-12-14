@@ -52,6 +52,12 @@
             <!-- TITLE -->
             <header class="hero" style="padding: 2.5rem 1rem; text-align:center;">
                 <h1 style="font-size:3rem; margin-bottom:0.8rem;" id="pageTitle">Best Movies</h1>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search movies & TV shows...">
+                    <button id="searchBtn">
+                        🔍
+                    </button>
+                </div>
                 <!-- DROPDOWNS FOR MOVIE FILTERING -->
                  <div>
                     <!-- Sort by popularity -->
@@ -89,6 +95,12 @@
                         <option value="3">⭐⭐⭐</option>
                         <option value="2">⭐⭐</option>
                         <option value="1">⭐</option>
+                    </select>
+                    <!-- Medium -->
+                     <select id="typeFilter" name="typeFilterSelection" class="movies__filterdropdown">
+                        <option value="" selected>ANY TYPE</option>
+                        <option value="movie">MOVIES</option>
+                        <option value="show">TV SHOWS</option>
                     </select>
                     <!-- Reset button -->
                     <div id="selectReset" name="resetButton">Reset</div>
