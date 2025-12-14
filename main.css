@@ -410,9 +410,7 @@ label {
     font-size: 14px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+input {
     width: 100%;
     padding: 10px;
     font-size: 14px;
@@ -495,3 +493,31 @@ input[type="password"] {
 #selectReset:hover {
 	background-color: #a10f88;
 }
+
+.search-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 1rem;
+}
+
+.search-container input {
+	width: 300px;
+	border-radius: 20px;
+}
+
+.search-container button {
+	padding: 0.5rem 0.8rem;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+	border-left: none;
+	border-radius: 20px;
+	background: #f0f0f0;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.search-container button:hover {
+	background: #ddd;
+}
+
