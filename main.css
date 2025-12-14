@@ -486,6 +486,7 @@ input[type="password"] {
 	background-color: #e437c7; 
 	color: white; 
 	border-radius: 20px; 
+	border: 0;
 	display: inline-block; 
 	padding: 5px 10px; 
 	cursor: pointer;
