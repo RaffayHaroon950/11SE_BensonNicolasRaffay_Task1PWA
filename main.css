@@ -481,3 +481,16 @@ input[type="password"] {
     margin-top: 0.5rem;
     width: 100%;
 }
+
+#selectReset {
+	background-color: #e437c7; 
+	color: white; 
+	border-radius: 20px; 
+	display: inline-block; 
+	padding: 5px 10px; 
+	cursor: pointer;
+}
+
+#selectReset:hover {
+	background-color: #a10f88;
+}
