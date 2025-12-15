@@ -13,28 +13,32 @@
             <a href="index.html" class="back-btn">Back</a>
 
             <h2>Create a new Ripened Raspberries account</h2>
+                <form id="createForm">
+                    <div class="input-group">
+                        <label>Username</label>
+                        <input id="username" type="text" placeholder="Enter username" required minlength="3">
+                    </div>
 
-            <div class="input-group">
-                <label>Username</label>
-                <input type="text" placeholder="Enter username">
-            </div>
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input id="email" type="email" placeholder="Enter email" required>
+                    </div>
 
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" placeholder="Enter email">
-            </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input id="password" type="password" placeholder="Enter password" required minlength="8">
+                    </div>
 
-            <div class="input-group">
-                <label>Password</label>
-                <input type="password" placeholder="Enter password">
-            </div>
+                    <p id="error" style="color:crimson; text-align:center; display:none;"></p>
 
-            <button class="login button btn-primary">Create Account</button>
+                    <button type="submit" class="login button btn-primary">Create Account</button>
+                </form>
 
             <small style="padding:2rem 1rem; text-align:center; color: gray;">
                 <label>&copy; 2025 Ripened Raspberries by Brentam Blockbusters</label>
             </small>
         </div>
+        <script src="create_account.js"></script>
         <script src="app.js"></script>            
     </body>
 </html>
