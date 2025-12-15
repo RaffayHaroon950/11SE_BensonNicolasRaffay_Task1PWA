@@ -13,29 +13,35 @@
             <a href="index.html" class="back-btn">Back</a>
 
             <h2>Log in to your Ripened Raspberries account</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input id="username" type="text" placeholder="Enter username">
+                </div>
 
-            <div class="input-group">
-                <label>Username</label>
-                <input type="text" placeholder="Enter username">
-            </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input id="email" type="email" placeholder="Enter email">
+                </div>
 
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" placeholder="Enter email">
-            </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input id="password" type="password" placeholder="Enter password">
+                </div>
 
-            <div class="input-group">
-                <label>Password</label>
-                <input type="password" placeholder="Enter password">
-            </div>
+                <p id="error" style="color:crimson; text-align:center; display:none;"></p>
 
-            <button class="login button btn-primary">Log in</button>
-            <button class="login button btn-secondary">Or create an account</button>
+                <button type="submit" class="login button btn-primary">Log in</button>
+            </form>
+            <a href="create_account.html" class="login button btn-secondary">
+                Or create an account
+            </a>
 
             <small style="padding:2rem 1rem; text-align:center; color: gray;">
                 <label>&copy; 2025 Ripened Raspberries by Brentam Blockbusters</label>
             </small>
         </div>
-        <script src="app.js"></script>            
+        <script src="app.js"></script>      
+        <script src="authentication.js"></script>          
     </body>
 </html>

@@ -345,6 +345,26 @@ body {
 	}
 }
 
+#authArea {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-username {
+  color: white;
+  font-weight: 700;
+}
+
+#logoutBtn {
+  cursor: pointer;
+}
+
+#logoutBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
 
 /*Login Page and Contact Page styles*/
 
