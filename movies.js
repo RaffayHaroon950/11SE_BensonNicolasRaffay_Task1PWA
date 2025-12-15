@@ -168,7 +168,7 @@ function renderCards() {
         card.className = "movie-card";
         card.innerHTML = `
             <img src="posters/${row.rowid}.png" alt="${row.Name} poster" class="poster">
-            <h3>${row.Name}</h3>
+            <h3>${row.Name} (${row.Year})</h3>
             <p>${row.Medium.charAt(0).toUpperCase()}${row.Medium.toLowerCase().slice(1)}</p>
             <img src="stars_${row.Rating}.png" alt="" class="rating-icon" aria-hidden="true">
         `;
