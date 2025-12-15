@@ -47,7 +47,7 @@ function runQuery(order = "MOST POPULAR") {
     const type = document.getElementById('typeFilter').value;
 
     let query = `
-        SELECT Movies.rowid, Movies.Name, Movies.Rating, Movies.AgeRating, Movies.Medium
+        SELECT Movies.rowid, Movies.Name, Movies.Rating, Movies.AgeRating, Movies.Medium, Movies.Year
         FROM Movies
         WHERE 1=1
     `;
