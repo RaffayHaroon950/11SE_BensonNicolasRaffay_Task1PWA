@@ -322,8 +322,8 @@ body {
 
 .rating-icon {
 	display: block;
-	width: 44px;
-	height: auto;
+	width: auto;
+	height: 44px;
 	margin-top: 0.6rem;
 	opacity: 0.98;
 }
