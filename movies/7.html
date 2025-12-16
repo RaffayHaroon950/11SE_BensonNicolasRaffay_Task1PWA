@@ -25,7 +25,7 @@
         <li class="navbar__item">
             <a href="../contact_page.html" class="navbar__links">Contact Us</a>
         </li>
-        <li class="navbar__btn">
+        <li class="navbar__btn" id="authArea">
             <a href="../login_page.html" class="button">Log In</a>
         </li>
     </ul>
@@ -300,6 +300,27 @@
           renderReviews();
         })();
       </script>
+      <script>
+            (function () {
+                const authArea = document.getElementById("authArea");
+                if (!authArea) return;
+
+                const currentUserRaw = localStorage.getItem("currentUser");
+                const currentUser = currentUserRaw ? JSON.parse(currentUserRaw) : null;
+
+                if (currentUser && currentUser.username) {
+                authArea.innerHTML = `
+                    <span class="nav-username">Hi, ${currentUser.username}</span>
+                    <button class="button" id="logoutBtn" type="button">Log out</button>
+                `;
+
+                document.getElementById("logoutBtn").addEventListener("click", () => {
+                    localStorage.removeItem("currentUser");
+                    window.location.reload();
+                });
+                }
+            })();
+        </script>
     <script src="../app.js"></script>
   </body>
 </html>
