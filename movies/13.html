@@ -48,7 +48,7 @@
         <div>
           <img src="../posters/13.png" alt="Movie poster" style="width:100%; border-radius:8px; box-shadow:0 6px 18px rgba(2,6,23,0.08);"/>
           <div style="margin-top:0.75rem; display:flex; gap:0.5rem; align-items:center;">
-            <img src="../stars_4.png" alt="4-star rating" style="width:56px;"/>
+            <img src="../stars_4.png" alt="4-star rating" style="height:50px;"/>
             <div style="font-weight:700; font-size:1.05rem;">4 stars</div>
           </div>
         </div>
@@ -144,7 +144,7 @@
       <script>
         (function(){
           var main = document.querySelector('main.site-content');
-          var movieId = (main && main.dataset && main.dataset.movieId) ? main.dataset.movieId : 'unknown';
+          var movieId = 13;
           var storageKey = 'reviews_movie_' + movieId;
 
           function escapeHtml(str){
