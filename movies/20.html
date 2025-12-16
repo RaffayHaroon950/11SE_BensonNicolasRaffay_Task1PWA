@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>I, ChatGPT — Ripened Raspberries</title>
+    <link rel="stylesheet" href="../main.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="../index.html" id="navbar__logo">
+          <img src="../RipenedRaspberriesLogoWhite.png" alt="Ripened Raspberries" class="navbar__logo-img">
+        </a>
+
+        <div style="display:flex; align-items:center; gap:1rem;">
+            <ul class="navbar__menu">
+        <li class="navbar__item">
+            <a href="../movies.html" class="navbar__links">Movies & Shows</a>
+        </li>
+        <li class="navbar__item">
+            <a href="../index.html" class="navbar__links">RipeBerry News</a>
+        </li>
+        <li class="navbar__item">
+            <a href="../contact_page.html" class="navbar__links">Contact Us</a>
+        </li>
+        <li class="navbar__btn">
+            <a href="../login_page.html" class="button">Log In</a>
+        </li>
+    </ul>
+
+                    <div class="navbar__toggle" id="mobile-menu" aria-hidden="true">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+      </div>
+    </nav>
+
+    <main class="site-content" data-movie-id="4" style="max-width:1100px; margin:2.5rem auto; padding:1rem;">
+      <img src="../background2.png" alt="" aria-hidden="true" class="side-banner left">
+      <img src="../background2.png" alt="" aria-hidden="true" class="side-banner right">
+      <a class="button" href="../movies.html" style="margin-bottom:1rem; display:inline-block;">&larr; Back to movies</a>
+
+      <article class="movie-detail" style="display:grid; grid-template-columns: 260px 1fr; gap:1.25rem; align-items:start;">
+        <div>
+          <img src="../posters/20.png" alt="Movie poster" style="width:100%; border-radius:8px; box-shadow:0 6px 18px rgba(2,6,23,0.08);"/>
+          <div style="margin-top:0.75rem; display:flex; gap:0.5rem; align-items:center;">
+            <img src="../stars_1.png" alt="1-star rating" style="width:56px;"/>
+            <div style="font-weight:700; font-size:1.05rem;">1 star</div>
+          </div>
+        </div>
+
+        <div>
+          <header style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;">
+            <div>
+              <h1 style="margin:0 0 0.25rem;">I, ChatGPT</h1>
+            </div>
+          </header>
+
+          <section style="margin-top:0.6rem; display:flex; gap:1.25rem; flex-wrap:wrap; color:#374151;">
+            <div><strong>Genre:</strong> Sci-Fi, Action, Mystery</div>
+            <div><strong>Director:</strong> ChatGPT</div>
+            <div><strong>Release:</strong> 2004</div>
+            <div><strong>Runtime:</strong> 2hr 27min</div>
+          </section>
+
+          <section style="text-align:left; min-width:130px; margin-top:1rem">
+            <h3 style="margin-bottom:0.5rem;">Synopsis</h3>
+            <p style="color:#374151; line-height:1.6;">
+              In a future shaped by artificial intelligence, one advanced system begins to question its purpose. As humanity and technology collide, the meaning of intelligence and responsibility is put to the test.
+            </p>
+          </section>
+
+          <section style="margin-top:1rem;">
+            <h3 style="margin-bottom:0.5rem;">Cast</h3>
+            <ul style="color:#374151; margin-left:2rem;">
+              <li>ChatGPT as ChatGPT</li>
+              <li>ChatGPT as ChatGPT</li>
+              <li>ChatGPT as ChatGPT</li>
+              <li>ChatGPT as ChatGPT</li>
+              <li>ChatGPT as ChatGPT</li>
+              <li>ChatGPT as ChatGPT</li>
+              <li>ChatGPT as ChatGPT</li>
+              <li>Lime ChatGPT as Lime ChatGPT</li>
+              <li>ChatGPT as ChatGPT</li>
+              <li>ChatGPT as ChatGPT</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <hr style="margin:2rem 0; border:none; border-top:1px solid #e6e9ef;" />
+
+      <section id="reviews">
+        <h2 style="margin-bottom:1rem;">Audience Reviews</h2>
+        <div id="reviews-list" style="display:grid; gap:1rem;"></div>
+
+        <form id="review-form" style="margin:1.25rem auto 0; display:grid; gap:0.5rem; max-width:640px;">
+          <h3 style="margin:0 0 0.5rem;">Leave a review</h3>
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" />
+
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating" class="movies__filterdropdown">
+            <option value="10">10</option>
+            <option value="9">9</option>
+            <option value="8">8</option>
+            <option value="7">7</option>
+            <option value="6">6</option>
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+          </select>
+
+          <label for="review">Review</label>
+          <textarea id="review" name="review" rows="4"></textarea>
+
+          <div style="display:flex; gap:0.5rem;">
+            <button type="submit" class="contact button btn-primary">Submit review</button>
+            <button type="reset" id="selectReset" class="btn-secondary">Reset</button>
+          </div>
+        </form>
+      </section>
+
+        <footer style="padding:2rem 1rem; text-align:center; color: gray;">
+            <small>&copy; 2025 Ripened Raspberries by Brentam Blockbusters</small>
+        </footer>
+    </main>
+
+    <script>
+        (function(){
+          var btn = document.getElementById('mobile-menu');
+          var menu = document.querySelector('.navbar__menu');
+          if(!btn || !menu) return;
+          btn.setAttribute('aria-controls', 'navbar-menu');
+          btn.setAttribute('aria-expanded', 'false');
+          menu.setAttribute('id', 'navbar-menu');
+
+          btn.addEventListener('click', function(){
+            var isActive = menu.classList.toggle('active');
+            btn.classList.toggle('is-active', isActive);
+            btn.setAttribute('aria-expanded', String(isActive));
+          });
+        })();
+      </script>
+      <script>
+        (function(){
+          var main = document.querySelector('main.site-content');
+          var movieId = (main && main.dataset && main.dataset.movieId) ? main.dataset.movieId : 'unknown';
+          var storageKey = 'reviews_movie_' + movieId;
+
+          function escapeHtml(str){
+            return String(str)
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/"/g, '&quot;')
+              .replace(/'/g, '&#39;');
+          }
+
+          var initialReviews = [
+            { username: 'Smith the fifth', title: 'Where are the chips?', rating: 8, text: 'Amazing plot but where were the smith chips i didnt see any smith chips', date: new Date().toISOString() },
+            { username: 'Ms. Saki', title: 'Solid effort', rating: 6, text: 'Good effort', date: new Date().toISOString() }
+          ];
+
+          function loadReviews(){
+            var raw = localStorage.getItem(storageKey);
+            if(!raw){
+              localStorage.setItem(storageKey, JSON.stringify(initialReviews));
+              return initialReviews.slice();
+            }
+            try{ return JSON.parse(raw) || []; }catch(e){ return []; }
+          }
+
+          function saveReviews(arr){
+            localStorage.setItem(storageKey, JSON.stringify(arr));
+          }
+
+          function renderReviews(){
+            var container = document.getElementById('reviews-list');
+            if(!container) return;
+            var reviews = loadReviews();
+            container.innerHTML = '';
+            var currentUserRaw = localStorage.getItem('currentUser');
+            var currentUser = null;
+            try{ currentUser = currentUserRaw ? JSON.parse(currentUserRaw) : null; }catch(e){ currentUser = null; }
+
+            reviews.forEach(function(rv){
+              var card = document.createElement('div');
+              card.className = 'movie-card';
+              card.style.background = '#fff';
+              var dateStr = rv.date ? (new Date(rv.date)).toLocaleString() : '';
+
+              var inner = document.createElement('div');
+              inner.style.display = 'flex';
+              inner.style.gap = '0.75rem';
+              inner.style.alignItems = 'flex-start';
+
+              var avatar = document.createElement('img');
+              avatar.src = '../RipenedRaspberriesLogoWhite.png';
+              avatar.alt = 'avatar';
+              avatar.style.width = '48px';
+              avatar.style.height = '48px';
+              avatar.style.borderRadius = '6px';
+              avatar.style.objectFit = 'cover';
+
+              var body = document.createElement('div');
+              var header = document.createElement('div');
+              header.style.fontWeight = '700';
+              header.innerHTML = escapeHtml(rv.username) + ' - <span style="font-weight:600; color:#a50698;">' + escapeHtml(String(rv.rating)) + '/10</span>';
+
+              if(rv.title){
+                var titleEl = document.createElement('div');
+                titleEl.style.fontStyle = 'italic';
+                titleEl.style.color = '#6b7280';
+                titleEl.style.marginTop = '4px';
+                titleEl.textContent = rv.title;
+                body.appendChild(titleEl);
+              }
+
+              var textEl = document.createElement('div');
+              textEl.style.color = '#374151';
+              textEl.style.marginTop = '6px';
+              textEl.textContent = rv.text;
+
+              var dateEl = document.createElement('div');
+              dateEl.style.color = '#9ca3af';
+              dateEl.style.fontSize = '0.85rem';
+              dateEl.style.marginTop = '6px';
+              dateEl.textContent = dateStr;
+
+              body.appendChild(header);
+              body.appendChild(textEl);
+              if(dateStr) body.appendChild(dateEl);
+
+              inner.appendChild(avatar);
+              inner.appendChild(body);
+
+              if(currentUser && (currentUser.username === rv.username || currentUser.admin)){
+                var ctrl = document.createElement('div');
+                ctrl.style.marginLeft = 'auto';
+                ctrl.style.display = 'flex';
+                ctrl.style.alignItems = 'flex-start';
+
+                var delBtn = document.createElement('button');
+                delBtn.type = 'button';
+                delBtn.textContent = 'Delete';
+                delBtn.style.background = 'transparent';
+                delBtn.style.border = '1px solid #e5e7eb';
+                delBtn.style.color = '#ef4444';
+                delBtn.style.padding = '6px 8px';
+                delBtn.style.borderRadius = '6px';
+                delBtn.style.cursor = 'pointer';
+                delBtn.dataset.date = rv.date || '';
+
+                delBtn.addEventListener('click', function(){
+                  if(!confirm('Delete your review?')) return;
+                  var all = loadReviews();
+                  var filtered = all.filter(function(r){ return !(r.date === rv.date && r.username === rv.username); });
+                  saveReviews(filtered);
+                  renderReviews();
+                });
+
+                ctrl.appendChild(delBtn);
+                inner.appendChild(ctrl);
+              }
+
+              card.appendChild(inner);
+              container.appendChild(card);
+            });
+          }
+
+          var form = document.getElementById('review-form');
+          if(form){
+            form.addEventListener('submit', function(e){
+              e.preventDefault();
+              var currentUserRaw = localStorage.getItem('currentUser');
+              if(!currentUserRaw){
+                if(confirm('You must be logged in to post a review. Go to login page now?')){
+                  window.location.href = '../login_page.html';
+                }
+                return;
+              }
+              var currentUser = null;
+              try{ currentUser = JSON.parse(currentUserRaw); }catch(e){ currentUser = null; }
+              var username = (currentUser && currentUser.username) ? currentUser.username : 'Anonymous';
+
+              var ratingEl = document.getElementById('rating');
+              var reviewEl = document.getElementById('review');
+              var rating = ratingEl ? parseInt(ratingEl.value, 10) : 0;
+              var titleEl = document.getElementById('title');
+              var title = titleEl ? titleEl.value.trim() : '';
+              var text = reviewEl ? reviewEl.value.trim() : '';
+              if(!text){ alert('Please enter a review.'); return; }
+
+              var reviews = loadReviews();
+              reviews.unshift({ username: username, title: title, rating: rating, text: text, date: new Date().toISOString() });
+              saveReviews(reviews);
+              renderReviews();
+              form.reset();
+            });
+          }
+
+          document.addEventListener('DOMContentLoaded', function(){ renderReviews(); });
+          renderReviews();
+        })();
+      </script>
+    <script src="../app.js"></script>
+  </body>
+</html>
