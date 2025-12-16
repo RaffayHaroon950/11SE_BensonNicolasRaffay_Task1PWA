@@ -2,17 +2,6 @@ let db = null;
 // The current movie cards shown onscreen
 let currentResults = [];
 
-// Make 'slug' version of string
-
-function makeSlug(title) {
-    return title
-        .toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, '')
-        .trim()
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-');
-}
-
 async function loadDatabase() {
     try {
         const SQL = await initSqlJs({
@@ -162,9 +151,8 @@ function renderCards() {
     }
 
     currentResults.forEach(row => {
-        const slug = makeSlug(row.Name);
         const card = document.createElement('a');
-        card.href = `/movies/${slug}.html`
+        card.href = `/movies/${row.rowid}.html`
         card.className = "movie-card";
         card.innerHTML = `
             <img src="posters/${row.rowid}.png" alt="${row.Name} poster" class="poster">
