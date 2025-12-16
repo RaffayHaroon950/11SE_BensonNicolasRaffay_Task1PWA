@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Movie Title — Ripened Raspberries</title>
+    <title>Welcome To Artquadville: Arslageddon — Ripened Raspberries</title>
     <link rel="stylesheet" href="../main.css" />
   </head>
   <body>
@@ -46,10 +46,10 @@
 
       <article class="movie-detail" style="display:grid; grid-template-columns: 260px 1fr; gap:1.25rem; align-items:start;">
         <div>
-          <img src="../EndgamePoster.jpg" alt="Movie poster" style="width:100%; border-radius:8px; box-shadow:0 6px 18px rgba(2,6,23,0.08);"/>
+          <img src="../posters/1.png" alt="Movie poster" style="width:100%; border-radius:8px; box-shadow:0 6px 18px rgba(2,6,23,0.08);"/>
           <div style="margin-top:0.75rem; display:flex; gap:0.5rem; align-items:center;">
-            <img src="../stars_5.png" alt="5-star rating" style="width:56px;"/>
-            <div style="font-weight:700; font-size:1.05rem;">5 stars</div>
+            <img src="../stars_5.png" alt="5-star rating" style="height:50px;"/>
+            <div style="font-weight:700; font-size:1.05rem;">Critics: 5 stars</div>
           </div>
         </div>
 
@@ -71,15 +71,16 @@
 
           <section style="text-align:left; min-width:130px; margin-top:1rem">
             <h3 style="margin-bottom:0.5rem;">Synopsis</h3>
-            <p style="color:#374151; line-height:1.6;">Lorme reiiierothertr imspuerhnjerkihgeihrg 9g 9erg u9rehkgerhg elfiihgrkhwsldnsvbgkfs,nn dfvd.</p>
+            <p style="color:#374151; line-height:1.6;">In the vibrant city of Artquadville, creativity itself becomes a battlefield when the mysterious force known as Arslageddon threatens to erase imagination from existence. A band of eccentric artists must unite their wildest visions to fight back, proving that art is the ultimate weapon against destruction.
+</p>
           </section>
 
           <section style="margin-top:1rem;">
             <h3 style="margin-bottom:0.5rem;">Cast</h3>
             <ul style="color:#374151; margin-left:2rem;">
-              <li>Benson as Benson</li>
-              <li>Raffay as Raffay</li>
-              <li>Tree as potato</li>
+              <li>Benson Carungay as Benson</li>
+              <li>Raffay Haroon as Raffay</li>
+              <li>Tree Tree as Background Tree 3</li>
             </ul>
           </section>
         </div>
@@ -144,7 +145,7 @@
       <script>
         (function(){
           var main = document.querySelector('main.site-content');
-          var movieId = (main && main.dataset && main.dataset.movieId) ? main.dataset.movieId : 'unknown';
+          var movieId = 1;
           var storageKey = 'reviews_movie_' + movieId;
 
           function escapeHtml(str){

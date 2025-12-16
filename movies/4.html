@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>I, ChatGPT — Ripened Raspberries</title>
+    <title>Girra Wars - The Rise Of Skanda — Ripened Raspberries</title>
     <link rel="stylesheet" href="../main.css" />
   </head>
   <body>
@@ -46,47 +46,38 @@
 
       <article class="movie-detail" style="display:grid; grid-template-columns: 260px 1fr; gap:1.25rem; align-items:start;">
         <div>
-          <img src="../posters/20.png" alt="Movie poster" style="width:100%; border-radius:8px; box-shadow:0 6px 18px rgba(2,6,23,0.08);"/>
+          <img src="../posters/4.png" alt="Movie poster" style="width:100%; border-radius:8px; box-shadow:0 6px 18px rgba(2,6,23,0.08);"/>
           <div style="margin-top:0.75rem; display:flex; gap:0.5rem; align-items:center;">
-            <img src="../stars_1.png" alt="1-star rating" style="height:50px;"/>
-            <div style="font-weight:700; font-size:1.05rem;">1 star</div>
+            <img src="../stars_2.png" alt="2-star rating" style="height: 50px;"/>
+            <div style="font-weight:700; font-size:1.05rem;">Critics: 2 stars</div>
           </div>
         </div>
 
         <div>
           <header style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;">
             <div>
-              <h1 style="margin:0 0 0.25rem;">I, ChatGPT</h1>
+              <h1 style="margin:0 0 0.25rem;">Girra Wars - The Rise Of Skanda</h1>
             </div>
           </header>
 
           <section style="margin-top:0.6rem; display:flex; gap:1.25rem; flex-wrap:wrap; color:#374151;">
-            <div><strong>Genre:</strong> Sci-Fi, Action, Mystery</div>
-            <div><strong>Director:</strong> ChatGPT</div>
-            <div><strong>Release:</strong> 2004</div>
-            <div><strong>Runtime:</strong> 2hr 27min</div>
+            <div><strong>Genre:</strong> Sci-Fi, Adventure, Action, Fantasy</div>
+            <div><strong>Director:</strong> A.B. Carungay</div>
+            <div><strong>Release:</strong> 1999</div>
+            <div><strong>Runtime:</strong> 2h 22m</div>
           </section>
 
           <section style="text-align:left; min-width:130px; margin-top:1rem">
             <h3 style="margin-bottom:0.5rem;">Synopsis</h3>
-            <p style="color:#374151; line-height:1.6;">
-              In a future shaped by artificial intelligence, one advanced system begins to question its purpose. As humanity and technology collide, the meaning of intelligence and responsibility is put to the test.
-            </p>
+            <p style="color:#374151; line-height:1.6;">In a galaxy torn apart by ancient rivalries, a young warrior named Skanda discovers his destiny as the last hope for peace. As dark forces gather to claim ultimate power, Skanda must rise against impossible odds to unite the fractured worlds of Girra.</p>
           </section>
 
           <section style="margin-top:1rem;">
             <h3 style="margin-bottom:0.5rem;">Cast</h3>
             <ul style="color:#374151; margin-left:2rem;">
-              <li>ChatGPT as ChatGPT</li>
-              <li>ChatGPT as ChatGPT</li>
-              <li>ChatGPT as ChatGPT</li>
-              <li>ChatGPT as ChatGPT</li>
-              <li>ChatGPT as ChatGPT</li>
-              <li>ChatGPT as ChatGPT</li>
-              <li>ChatGPT as ChatGPT</li>
-              <li>Lime ChatGPT as Lime ChatGPT</li>
-              <li>ChatGPT as ChatGPT</li>
-              <li>ChatGPT as ChatGPT</li>
+              <li>Skanda Nagendra as Skanda</li>
+              <li>Kiren Cumaressan as Kiren</li>
+              <li>Benson Carungay as Yoda Ben</li>
             </ul>
           </section>
         </div>
@@ -151,7 +142,7 @@
       <script>
         (function(){
           var main = document.querySelector('main.site-content');
-          var movieId = 20;
+          var movieId = 4;
           var storageKey = 'reviews_movie_' + movieId;
 
           function escapeHtml(str){
@@ -310,27 +301,6 @@
           renderReviews();
         })();
       </script>
-      <script>
-            (function () {
-                const authArea = document.getElementById("authArea");
-                if (!authArea) return;
-
-                const currentUserRaw = localStorage.getItem("currentUser");
-                const currentUser = currentUserRaw ? JSON.parse(currentUserRaw) : null;
-
-                if (currentUser && currentUser.username) {
-                authArea.innerHTML = `
-                    <span class="nav-username">Hi, ${currentUser.username}</span>
-                    <button class="button" id="logoutBtn" type="button">Log out</button>
-                `;
-
-                document.getElementById("logoutBtn").addEventListener("click", () => {
-                    localStorage.removeItem("currentUser");
-                    window.location.reload();
-                });
-                }
-            })();
-        </script>
     <script src="../app.js"></script>
   </body>
 </html>
