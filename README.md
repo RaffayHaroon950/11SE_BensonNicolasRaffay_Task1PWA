@@ -4,8 +4,8 @@ IMPORTANT NOTE: If you go to the GitHub pages link for our PWA, please first go 
 
 1. Download our repository to your machine.
 2. Navigate to the folder of the repository in Command Prompt.
-3. Type this into Command Prompt: python -m http.server 8000.
-4. Go to "http/localserver8000" on your browser.
+3. Type this into Command Prompt: "python -m http.server 8000".
+4. Go to "http://localhost:8000" on your browser.
 
 Our PWA should then be up and running.
 
