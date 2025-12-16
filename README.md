@@ -9,4 +9,11 @@ IMPORTANT NOTE: If you go to the GitHub pages link for our PWA, please first go 
 
 Our PWA should then be up and running.
 
+Additionally, to test with an account already created for the Movie Review Website, please type:
+- Username: testuser
+- Email: test@test.com
+- Password: 1234
+
+But you can also create your own new account.
+
 Thank you, and enjoy!
