@@ -310,6 +310,27 @@
           renderReviews();
         })();
       </script>
+      <script>
+            (function () {
+                const authArea = document.getElementById("authArea");
+                if (!authArea) return;
+
+                const currentUserRaw = localStorage.getItem("currentUser");
+                const currentUser = currentUserRaw ? JSON.parse(currentUserRaw) : null;
+
+                if (currentUser && currentUser.username) {
+                authArea.innerHTML = `
+                    <span class="nav-username">Hi, ${currentUser.username}</span>
+                    <button class="button" id="logoutBtn" type="button">Log out</button>
+                `;
+
+                document.getElementById("logoutBtn").addEventListener("click", () => {
+                    localStorage.removeItem("currentUser");
+                    window.location.reload();
+                });
+                }
+            })();
+        </script>
     <script src="../app.js"></script>
   </body>
 </html>
