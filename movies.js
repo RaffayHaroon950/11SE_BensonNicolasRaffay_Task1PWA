@@ -29,7 +29,7 @@ function runQuery(order = "MOST POPULAR") {
     if (!db) return;
 
     let temp = document.getElementById('genreFilter').value;
-    const genre = `${temp.charAt(0).toUpperCase()}${temp.toLowerCase().slice(1)}`;
+    let genre = `${temp.charAt(0).toUpperCase()}${temp.toLowerCase().slice(1)}`;
     const age = document.getElementById('ageFilter').value;
     const rating = document.getElementById('ratingFilter').value;
     const search = document.getElementById('searchInput').value.trim();
@@ -51,6 +51,9 @@ function runQuery(order = "MOST POPULAR") {
         params.push(parseInt(rating, 10));
     }
     if (genre !== "") {
+        if (genre === 'Sci-fi') {
+            genre = 'Sci-Fi';
+        }
         query += `
             AND EXISTS (
                 SELECT 1 FROM MovieGenres
@@ -152,7 +155,7 @@ function renderCards() {
 
     currentResults.forEach(row => {
         const card = document.createElement('a');
-        card.href = `/movies/${row.rowid}.html`
+        card.href = `./movies/${row.rowid}.html`
         card.className = "movie-card";
         card.innerHTML = `
             <img src="posters/${row.rowid}.png" alt="${row.Name} poster" class="poster">
