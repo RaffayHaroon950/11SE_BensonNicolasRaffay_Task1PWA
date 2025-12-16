@@ -39,7 +39,7 @@
       </div>
     </nav>
 
-    <main class="site-content" style="max-width:1100px; margin:2.5rem auto; padding:1rem;">
+    <main class="site-content" data-movie-id="4" style="max-width:1100px; margin:2.5rem auto; padding:1rem;">
       <img src="../background2.png" alt="" aria-hidden="true" class="side-banner left">
       <img src="../background2.png" alt="" aria-hidden="true" class="side-banner right">
       <a class="button" href="../movies.html" style="margin-bottom:1rem; display:inline-block;">&larr; Back to movies</a>
@@ -87,38 +87,25 @@
 
       <section id="reviews">
         <h2 style="margin-bottom:1rem;">Audience Reviews</h2>
-        <div style="display:grid; gap:1rem;">
-          <div class="movie-card" style="background:#fff;">
-            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
-              <img src="../RipenedRaspberriesLogoWhite.png" alt="avatar" style="width:48px; height:48px; border-radius:6px; object-fit:cover;"/>
-              <div>
-                <div style="font-weight:700;">Smith the fifth - <span style="font-weight:600; color:#a50698;">8/10</span></div>
-                <div style="color:#374151;">Amazing plot but where were the smith chips i didnt see any smith chips</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="movie-card" style="background:#fff;">
-            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
-              <img src="../RipenedRaspberriesLogoWhite.png" alt="avatar" style="width:48px; height:48px; border-radius:6px; object-fit:cover;"/>
-              <div>
-                <div style="font-weight:700;">Ms. Saki - <span style="font-weight:600; color:#a50698;">6/10</span></div>
-                <div style="color:#374151;">Good effort</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div id="reviews-list" style="display:grid; gap:1rem;"></div>
 
         <form id="review-form" style="margin:1.25rem auto 0; display:grid; gap:0.5rem; max-width:640px;">
           <h3 style="margin:0 0 0.5rem;">Leave a review</h3>
-          <label for="rating">Rating</label>
-          <select id="rating" name="rating" class="movies__filterdropdown">
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" />
+
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating" class="movies__filterdropdown">
             <option value="10">10</option>
             <option value="9">9</option>
             <option value="8">8</option>
             <option value="7">7</option>
             <option value="6">6</option>
             <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
           </select>
 
           <label for="review">Review</label>
@@ -150,6 +137,168 @@
             btn.classList.toggle('is-active', isActive);
             btn.setAttribute('aria-expanded', String(isActive));
           });
+        })();
+      </script>
+      <script>
+        (function(){
+          var main = document.querySelector('main.site-content');
+          var movieId = (main && main.dataset && main.dataset.movieId) ? main.dataset.movieId : 'unknown';
+          var storageKey = 'reviews_movie_' + movieId;
+
+          function escapeHtml(str){
+            return String(str)
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/"/g, '&quot;')
+              .replace(/'/g, '&#39;');
+          }
+
+          var initialReviews = [
+            { username: 'Smith the fifth', title: 'Where are the chips?', rating: 8, text: 'Amazing plot but where were the smith chips i didnt see any smith chips', date: new Date().toISOString() },
+            { username: 'Ms. Saki', title: 'Solid effort', rating: 6, text: 'Good effort', date: new Date().toISOString() }
+          ];
+
+          function loadReviews(){
+            var raw = localStorage.getItem(storageKey);
+            if(!raw){
+              localStorage.setItem(storageKey, JSON.stringify(initialReviews));
+              return initialReviews.slice();
+            }
+            try{ return JSON.parse(raw) || []; }catch(e){ return []; }
+          }
+
+          function saveReviews(arr){
+            localStorage.setItem(storageKey, JSON.stringify(arr));
+          }
+
+          function renderReviews(){
+            var container = document.getElementById('reviews-list');
+            if(!container) return;
+            var reviews = loadReviews();
+            container.innerHTML = '';
+            var currentUserRaw = localStorage.getItem('currentUser');
+            var currentUser = null;
+            try{ currentUser = currentUserRaw ? JSON.parse(currentUserRaw) : null; }catch(e){ currentUser = null; }
+
+            reviews.forEach(function(rv){
+              var card = document.createElement('div');
+              card.className = 'movie-card';
+              card.style.background = '#fff';
+              var dateStr = rv.date ? (new Date(rv.date)).toLocaleString() : '';
+
+              var inner = document.createElement('div');
+              inner.style.display = 'flex';
+              inner.style.gap = '0.75rem';
+              inner.style.alignItems = 'flex-start';
+
+              var avatar = document.createElement('img');
+              avatar.src = '../RipenedRaspberriesLogoWhite.png';
+              avatar.alt = 'avatar';
+              avatar.style.width = '48px';
+              avatar.style.height = '48px';
+              avatar.style.borderRadius = '6px';
+              avatar.style.objectFit = 'cover';
+
+              var body = document.createElement('div');
+              var header = document.createElement('div');
+              header.style.fontWeight = '700';
+              header.innerHTML = escapeHtml(rv.username) + ' - <span style="font-weight:600; color:#a50698;">' + escapeHtml(String(rv.rating)) + '/10</span>';
+
+              if(rv.title){
+                var titleEl = document.createElement('div');
+                titleEl.style.fontStyle = 'italic';
+                titleEl.style.color = '#6b7280';
+                titleEl.style.marginTop = '4px';
+                titleEl.textContent = rv.title;
+                body.appendChild(titleEl);
+              }
+
+              var textEl = document.createElement('div');
+              textEl.style.color = '#374151';
+              textEl.style.marginTop = '6px';
+              textEl.textContent = rv.text;
+
+              var dateEl = document.createElement('div');
+              dateEl.style.color = '#9ca3af';
+              dateEl.style.fontSize = '0.85rem';
+              dateEl.style.marginTop = '6px';
+              dateEl.textContent = dateStr;
+
+              body.appendChild(header);
+              body.appendChild(textEl);
+              if(dateStr) body.appendChild(dateEl);
+
+              inner.appendChild(avatar);
+              inner.appendChild(body);
+
+              if(currentUser && (currentUser.username === rv.username || currentUser.admin)){
+                var ctrl = document.createElement('div');
+                ctrl.style.marginLeft = 'auto';
+                ctrl.style.display = 'flex';
+                ctrl.style.alignItems = 'flex-start';
+
+                var delBtn = document.createElement('button');
+                delBtn.type = 'button';
+                delBtn.textContent = 'Delete';
+                delBtn.style.background = 'transparent';
+                delBtn.style.border = '1px solid #e5e7eb';
+                delBtn.style.color = '#ef4444';
+                delBtn.style.padding = '6px 8px';
+                delBtn.style.borderRadius = '6px';
+                delBtn.style.cursor = 'pointer';
+                delBtn.dataset.date = rv.date || '';
+
+                delBtn.addEventListener('click', function(){
+                  if(!confirm('Delete your review?')) return;
+                  var all = loadReviews();
+                  var filtered = all.filter(function(r){ return !(r.date === rv.date && r.username === rv.username); });
+                  saveReviews(filtered);
+                  renderReviews();
+                });
+
+                ctrl.appendChild(delBtn);
+                inner.appendChild(ctrl);
+              }
+
+              card.appendChild(inner);
+              container.appendChild(card);
+            });
+          }
+
+          var form = document.getElementById('review-form');
+          if(form){
+            form.addEventListener('submit', function(e){
+              e.preventDefault();
+              var currentUserRaw = localStorage.getItem('currentUser');
+              if(!currentUserRaw){
+                if(confirm('You must be logged in to post a review. Go to login page now?')){
+                  window.location.href = '../login_page.html';
+                }
+                return;
+              }
+              var currentUser = null;
+              try{ currentUser = JSON.parse(currentUserRaw); }catch(e){ currentUser = null; }
+              var username = (currentUser && currentUser.username) ? currentUser.username : 'Anonymous';
+
+              var ratingEl = document.getElementById('rating');
+              var reviewEl = document.getElementById('review');
+              var rating = ratingEl ? parseInt(ratingEl.value, 10) : 0;
+              var titleEl = document.getElementById('title');
+              var title = titleEl ? titleEl.value.trim() : '';
+              var text = reviewEl ? reviewEl.value.trim() : '';
+              if(!text){ alert('Please enter a review.'); return; }
+
+              var reviews = loadReviews();
+              reviews.unshift({ username: username, title: title, rating: rating, text: text, date: new Date().toISOString() });
+              saveReviews(reviews);
+              renderReviews();
+              form.reset();
+            });
+          }
+
+          document.addEventListener('DOMContentLoaded', function(){ renderReviews(); });
+          renderReviews();
         })();
       </script>
     <script src="../app.js"></script>
